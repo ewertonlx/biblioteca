@@ -25,13 +25,13 @@ public class MenuLivro {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Titulo do Livro: ");
+                    System.out.println("-> Titulo do Livro: ");
                     String titulo = input.nextLine();
-                    System.out.println("Autor do Livro: ");
+                    System.out.println("-> Autor do Livro: ");
                     String autor = input.nextLine();
-                    System.out.println("Ano de Publicação do Livro: ");
+                    System.out.println("-> Ano de Publicação do Livro: ");
                     String anoPublicacao = input.nextLine();
-                    System.out.println("Digite um identificador para esse livro: ");
+                    System.out.println("-> Digite um identificador para esse livro: ");
                     String identificador = input.nextLine();
                     Livro livro = new Livro(titulo, autor, anoPublicacao, identificador);
                     crud.insert(livro);
@@ -51,12 +51,12 @@ public class MenuLivro {
                     crud.update(idLivro, opcaoAlteracao);
                     break;
                 case 3:
-                    System.out.println("Digite o id do livro: ");
+                    System.out.println("-> Digite o id do livro: ");
                     String idExclusao = input.nextLine();
                     crud.delete(idExclusao);
                     break;
                 case 4:
-                    System.out.println("Digite o id do livro: ");
+                    System.out.println("-> Digite o id do livro: ");
                     String idConsulta = input.nextLine();
                     System.out.println(crud.get(idConsulta));
                     break;

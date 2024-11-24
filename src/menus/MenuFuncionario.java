@@ -25,9 +25,9 @@ public class MenuFuncionario {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("CPF do Funcionário: ");
+                    System.out.println("-> CPF do Funcionário: ");
                     String cpf = input.nextLine();
-                    System.out.println("Cargo do Funcionário: ");
+                    System.out.println("-> Cargo do Funcionário: ");
                     String cargo = input.nextLine();
                     Funcionario funcionario = new Funcionario(cargo, cpf);
                     crud.insert(funcionario);
@@ -53,12 +53,12 @@ public class MenuFuncionario {
                     crud.update(cpfFuncionario, opcaoAlteracao);
                     break;
                 case 3:
-                    System.out.println("Digite o CPF do Funcionário: ");
+                    System.out.println("-> Digite o CPF do Funcionário: ");
                     String cpfExclusao = input.nextLine();
                     crud.delete(cpfExclusao);
                     break;
                 case 4:
-                    System.out.println("Digite o CPF do Funcionário: ");
+                    System.out.println("-> Digite o CPF do Funcionário: ");
                     String cpfConsulta = input.nextLine();
                     System.out.println(crud.get(cpfConsulta));
                     break;

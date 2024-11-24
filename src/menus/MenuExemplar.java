@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import classes.Exemplar;
 import function.CrudExemplar;
+import services.ExemplarService;
 
 public class MenuExemplar {
     public static void painelExemplar(String[] args) {
@@ -25,14 +26,23 @@ public class MenuExemplar {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Identificação do Livro: ");
+                    System.out.println("-> Identificação do Livro: ");
                     String identificador = input.nextLine();
-                    System.out.println("Edição: ");
+                    System.out.println("-> Edição: ");
                     String edicao = input.nextLine();
-                    System.out.println("Estado de Conservação: ");
+                    System.out.println("-> Estado de Conservação: ");
                     String estadoConservacao = input.nextLine();
-                    System.out.println("Disponibilidade: ");
+                    System.out.println("-> Disponibilidade: ");
                     String disponibilidade = input.nextLine();
+                    while (true) {
+                        try {
+                            ExemplarService.validarDisp(disponibilidade);
+                            break;
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("-> Disponibilidade deve ser 'disp' para disponível ou 'indisp' para indisponível.");
+                            disponibilidade = input.nextLine();
+                        }
+                    }
                     Exemplar exemplar = new Exemplar(identificador,edicao, estadoConservacao, disponibilidade);
                     crud.insert(exemplar);
                     break;
@@ -51,12 +61,12 @@ public class MenuExemplar {
                     crud.update(idExemplar, opcaoAlteracao);
                     break;
                 case 3:
-                    System.out.println("Digite o id do exemplar: ");
+                    System.out.println("-> Digite o id do exemplar: ");
                     String idExclusao = input.nextLine();
                     crud.delete(idExclusao);
                     break;
                 case 4:
-                    System.out.println("Digite o id do exemplar: ");
+                    System.out.println("-> Digite o id do exemplar: ");
                     String idConsulta = input.nextLine();
                     System.out.println(crud.get(idConsulta));
                     break;

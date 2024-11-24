@@ -24,13 +24,13 @@ public class MenuEmprestimo {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("CPF do Cliente: ");
+                    System.out.println("-> CPF do Cliente: ");
                     String cpf = input.nextLine();
-                    System.out.println("Identificação do Exemplar: ");
+                    System.out.println("-> Identificação do Exemplar: ");
                     String identificador = input.nextLine();
-                    System.out.println("Data de Empréstimo: ");
+                    System.out.println("-> Data de Empréstimo: ");
                     String dataEmprestimo = input.nextLine();
-                    System.out.println("Data de Devolução: ");
+                    System.out.println("-> Data de Devolução: ");
                     String dataDevolucao = input.nextLine();
                     Emprestimo emprestimo = new Emprestimo(cpf, identificador, dataEmprestimo, dataDevolucao);
                     crud.insert(emprestimo);
@@ -48,12 +48,12 @@ public class MenuEmprestimo {
                     crud.update(idEmprestimo, opcaoAlteracao);
                     break;
                 case 3:
-                    System.out.println("Digite o id do empréstimo: ");
+                    System.out.println("-> Digite o id do empréstimo: ");
                     String idExclusao = input.nextLine();
                     crud.delete(idExclusao);
                     break;
                 case 4:
-                    System.out.println("Digite o id do empréstimo: ");
+                    System.out.println("-> Digite o id do empréstimo: ");
                     String idConsulta = input.nextLine();
                     System.out.println(crud.get(idConsulta));
                     break;

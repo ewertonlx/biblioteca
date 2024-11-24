@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import classes.Pessoa;
 import function.CrudUsuario;
+import services.PessoaService;
 
 public class MenuCliente {
     public static void painelCliente(String[] args) {
@@ -25,23 +26,51 @@ public class MenuCliente {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Nome do cliente: ");
+                    System.out.println("-> Nome do cliente: ");
                     String nome = input.nextLine();
-                    System.out.println("CPF do cliente: ");
+                    System.out.println("-> CPF do cliente: ");
                     String cpf = input.nextLine();
-                    System.out.println("Rua do cliente: ");
+                    while (true) {
+                        try {
+                            PessoaService.validarCpf(cpf);
+                            break;
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("-> CPF do cliente precisa ter 11 caracteres, por favor faça a correção: ");
+                            cpf = input.nextLine();
+                        }
+                        
+                    }
+                    System.out.println("-> Rua do cliente: ");
                     String rua = input.nextLine();
-                    System.out.println("Número da casa do cliente: ");
+                    System.out.println("-> Número da casa do cliente: ");
                     int numeroCasa = input.nextInt();
                     input.nextLine();
-                    System.out.println("Cidade do cliente: ");
+                    System.out.println("-> Cidade do cliente: ");
                     String cidade = input.nextLine();
-                    System.out.println("Estado do cliente: ");
+                    System.out.println("-> Estado do cliente: ");
                     String estado = input.nextLine();
-                    System.out.println("Telefone do cliente: ");
+                    System.out.println("-> Telefone do cliente: ");
                     String telefone = input.nextLine();
-                    System.out.println("Data de Nascimento do cliente: ");
+                    while (true) {
+                        try {
+                            PessoaService.validarNumero(telefone);
+                            break;
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("-> Telefone do cliente precisa ter 8 caracteres, por favor faça a correção: ");
+                            telefone = input.nextLine();
+                        }   
+                        
+                    }
+                    System.out.println("-> Data de Nascimento do cliente (yyyy/MM/dd): ");
                     String dt_nasc = input.nextLine();
+                    while (true) {
+                        if (PessoaService.validarDataNascimento(dt_nasc)) {
+                            break;
+                        } else {
+                            System.out.println("-> Data de Nascimento do cliente, lembre-se o formato é o yyyy/MM/dd: ");
+                            dt_nasc = input.nextLine();
+                        }
+                    }
                     Pessoa cliente = new Pessoa(cpf, nome, rua, numeroCasa ,cidade, estado, telefone, dt_nasc);
                     crud.insert(cliente);
                     
