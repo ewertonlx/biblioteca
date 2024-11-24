@@ -12,9 +12,10 @@ public class MenuPrincipal {
             System.out.println("1 - Menu Funcionário");
             System.out.println("2 - Menu Cliente");
             System.out.println("3 - Menu Livro");
-            System.out.println("4 - Menu Empréstimo");
-            System.out.println("5 - Excluir Cliente, Funcionário ou Livro");
-            System.out.println("8 - Sair");
+            System.out.println("4 - Menu Exemplar");
+            System.out.println("5 - Menu Empréstimo");
+            System.out.println("6 - Excluir Cliente, Funcionário ou Livro");
+            System.out.println("7 - Sair");
             System.out.println("╚═══════════════════════════════════════════════╝");
             System.out.print("Digite a opção desejada: ");
             opcao = input.nextInt();
@@ -28,14 +29,13 @@ public class MenuPrincipal {
                     MenuCliente.painelCliente(args);
                     break;
                 case 3:
-
-                    System.out.println("Cadastrar Livro");
+                    MenuLivro.painelLivro(args);
                     break;
                 case 4:
-                    System.out.println("Cadastrar Produto");
+                    MenuExemplar.painelExemplar(args);
                     break;
                 case 5:
-                    System.out.println("Cadastrar Venda");
+                    MenuEmprestimo.painelEmprestimo(args);
                     break;
                 case 6:
                     System.out.println("Cadastrar Compra");
@@ -50,11 +50,11 @@ public class MenuPrincipal {
                     System.out.println("Opção inválida");
                     break;
             }
-            if (opcao != 8) {
+            if (opcao != 7) {
                 System.out.println("\nPressione Enter para voltar ao menu principal.");
                 input.nextLine(); 
             }
-        } while (opcao != 8);
+        } while (opcao != 7);
         input.close();
     }
 }

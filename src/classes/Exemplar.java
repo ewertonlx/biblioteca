@@ -1,17 +1,25 @@
 package classes;
 
 public class Exemplar extends Livro {
-    private int id;
     private String edicao;
     private String estado_conservacao;
     private String disponibilidade;
 
-    public int getId() {
-        return id;
+    public Exemplar() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Exemplar(String titulo, String autor, String ano_publi, String identificador, String edicao, String estado_conservacao, String disponibilidade) {
+        super(titulo, autor, ano_publi, identificador);
+        this.edicao = edicao;
+        this.estado_conservacao = estado_conservacao;
+        this.disponibilidade = disponibilidade;
+    }
+
+    public Exemplar(String identificador, String edicao, String estado_conservacao, String disponibilidade) {
+        super(identificador);
+        this.edicao = edicao;
+        this.estado_conservacao = estado_conservacao;
+        this.disponibilidade = disponibilidade;
     }
 
     public String getEdicao() {

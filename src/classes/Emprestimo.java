@@ -1,16 +1,20 @@
 package classes;
 
 public class Emprestimo {
-    private int id;
     private String data_emprestimo;
     private String data_devolucao;
-    Livro livro;
+    String identificador;
+    String cpf;
 
-    public int getId() {
-        return id;
-    } 
-    public void setId(int id) {
-        this.id = id;
+    public Emprestimo() {
+    }
+
+    public Emprestimo(String cpf, String exemplar, String data_emprestimo, String data_devolucao) {
+        this.cpf = cpf;
+        this.identificador = exemplar;
+        this.data_emprestimo = data_emprestimo;
+        this.data_devolucao = data_devolucao;
+
     }
 
     public String getData_emprestimo() {
@@ -29,11 +33,19 @@ public class Emprestimo {
         this.data_devolucao = data_devolucao;
     }
 
-    public Livro getLivro() {
-        return livro;
+    public String getIdentificador() {
+        return identificador;
     }
 
-    public void setLivro(Livro livro) {
-        this.livro = livro;
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }
